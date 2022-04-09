@@ -143,7 +143,9 @@ void apply_layout(monitor_t *m, desktop_t *d, node_t *n, xcb_rectangle_t rect, x
 		xcb_rectangle_t first_rect;
 		xcb_rectangle_t second_rect;
 
-		if (d->layout == LAYOUT_MONOCLE || n->first_child->vacant || n->second_child->vacant) {
+		if (d->layout == LAYOUT_MONOCLE
+				|| (n->first_child->vacant && (n->first_child->client == NULL || !IS_FULLSCREEN(n->first_child->client)))
+				|| (n->second_child->vacant && (n->second_child->client == NULL || !IS_FULLSCREEN(n->second_child->client)))) {
 			first_rect = second_rect = rect;
 		} else {
 			unsigned int fence;

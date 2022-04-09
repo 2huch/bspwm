@@ -1,5 +1,7 @@
 ## Description
 
+*fork*: fullscreen windows don't resize parent window, contrary to other vacant windows.
+
 *bspwm* is a tiling window manager that represents windows as the leaves of a full binary tree.
 
 It only responds to X events, and the messages it receives on a dedicated socket.
